@@ -13,12 +13,17 @@
 <body>
   <div class="app" id="app">
     <!-- Sidebar -->
-    <aside class="sidebar" aria-label="Navegação principal">
-      <div class="sidebar__brand">
-        <div class="logo logo--star" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    <aside class="sidebar" id="sidebarNav" aria-label="Navegação principal">
+      <div class="sidebar__top">
+        <div class="sidebar__brand">
+          <div class="logo logo--star" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          </div>
+          <span class="sidebar__title">investe fácil</span>
         </div>
-        <span class="sidebar__title">investe fácil</span>
+        <button type="button" class="sidebar__close" id="sidebarClose" aria-label="Fechar menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </div>
 
       <nav class="sidebar__nav">
@@ -58,6 +63,18 @@
           </span>
           Acompanhamento
         </a>
+        <a href="#gastos" class="nav-item" data-page="gastos">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 100 4 2 2 0 000-4z"/></svg>
+          </span>
+          Meus gastos
+        </a>
+        <a href="#perfil" class="nav-item" data-page="perfil">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          Meu perfil
+        </a>
         <a href="#ajuda" class="nav-item" data-page="ajuda">
           <span class="nav-item__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 1c0 2-2.5 2-2.5 4"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
@@ -78,7 +95,7 @@
     <!-- Main -->
     <div class="main">
       <header class="topbar">
-        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebarNav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
         <label class="search-bar">

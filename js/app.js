@@ -1068,14 +1068,28 @@ function navigateTo(pageId) {
   history.replaceState(null, "", "#" + pageId);
   closeSidebar();
   closeDropdowns();
-  if (pageId === "acompanhamento") {
+  if (pageId === "acompanhamento" || pageId === "gastos") {
     renderExpenses();
+  }
+  if (pageId === "perfil") {
+    loadProfileForm();
   }
 }
 
 function closeSidebar() {
   document.querySelector(".sidebar")?.classList.remove("is-open");
   document.getElementById("overlay")?.setAttribute("hidden", "");
+  syncSidebarMenuState();
+}
+
+function syncSidebarMenuState() {
+  const open = document.querySelector(".sidebar")?.classList.contains("is-open");
+  const btn = document.getElementById("menuToggle");
+  document.body.classList.toggle("sidebar-open", !!open);
+  if (btn) {
+    btn.setAttribute("aria-expanded", String(!!open));
+    btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  }
 }
 
 function closeDropdowns() {
@@ -1244,6 +1258,17 @@ function init() {
     } else {
       overlay?.setAttribute("hidden", "");
     }
+    syncSidebarMenuState();
+  });
+
+  document.getElementById("sidebarClose")?.addEventListener("click", () => {
+    closeSidebar();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.querySelector(".sidebar")?.classList.contains("is-open")) {
+      closeSidebar();
+    }
   });
 
   document.getElementById("overlay")?.addEventListener("click", () => {
@@ -1338,6 +1363,8 @@ function init() {
     const page = location.hash.replace("#", "");
     if (page) navigateTo(page);
   });
+
+  syncSidebarMenuState();
 }
 
 document.addEventListener("DOMContentLoaded", init);
