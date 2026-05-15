@@ -70,24 +70,24 @@ const VIDEO_TRAIL = [
   {
     module: "Fundamentos",
     videos: [
-      { id: "v1", title: "Por que investir?", duration: "4:20", desc: "Entenda a diferença entre poupar e fazer o dinheiro trabalhar para você.", done: true, thumb: "linear-gradient(135deg,#6b46c1,#a78bfa)" },
-      { id: "v2", title: "Renda fixa x variável", duration: "6:15", desc: "Conheça os dois grandes grupos de investimentos.", done: true, thumb: "linear-gradient(135deg,#553c9a,#8b5cf6)" },
-      { id: "v3", title: "O que é o CDI?", duration: "3:48", desc: "A taxa mais usada para comparar rentabilidade no Brasil.", done: false, thumb: "linear-gradient(135deg,#7c3aed,#c4b5fd)" },
+      { id: "v1", title: "Por que investir?", duration: "4:20", desc: "Entenda a diferença entre poupar e fazer o dinheiro trabalhar para você.", done: true, thumb: "linear-gradient(135deg,#404040,#737373)" },
+      { id: "v2", title: "Renda fixa x variável", duration: "6:15", desc: "Conheça os dois grandes grupos de investimentos.", done: true, thumb: "linear-gradient(135deg,#262626,#525252)" },
+      { id: "v3", title: "O que é o CDI?", duration: "3:48", desc: "A taxa mais usada para comparar rentabilidade no Brasil.", done: false, thumb: "linear-gradient(135deg,#525252,#a3a3a3)" },
     ],
   },
   {
     module: "Primeiros passos",
     videos: [
-      { id: "v4", title: "Tesouro Selic na prática", duration: "7:02", desc: "Como funciona o título mais seguro do país.", done: false, thumb: "linear-gradient(135deg,#059669,#34d399)" },
-      { id: "v5", title: "Montando sua reserva", duration: "5:30", desc: "Quanto guardar e onde aplicar a reserva de emergência.", done: false, thumb: "linear-gradient(135deg,#047857,#6ee7b7)" },
+      { id: "v4", title: "Tesouro Selic na prática", duration: "7:02", desc: "Como funciona o título mais seguro do país.", done: false, thumb: "linear-gradient(135deg,#171717,#404040)" },
+      { id: "v5", title: "Montando sua reserva", duration: "5:30", desc: "Quanto guardar e onde aplicar a reserva de emergência.", done: false, thumb: "linear-gradient(135deg,#262626,#737373)" },
     ],
   },
   {
     module: "Planejamento",
     videos: [
-      { id: "v6", title: "Definindo objetivos", duration: "5:55", desc: "Transforme sonhos em metas com prazo e valor.", done: false, thumb: "linear-gradient(135deg,#d97706,#fbbf24)" },
-      { id: "v7", title: "Orçamento e gastos", duration: "6:40", desc: "Organize fixos e variáveis para saber quanto investir.", done: false, thumb: "linear-gradient(135deg,#b45309,#fcd34d)" },
-      { id: "v8", title: "Perfil de investidor", duration: "4:50", desc: "Descubra seu nível de risco e prazo ideal.", done: false, thumb: "linear-gradient(135deg,#6b46c1,#d97706)" },
+      { id: "v6", title: "Definindo objetivos", duration: "5:55", desc: "Transforme sonhos em metas com prazo e valor.", done: false, thumb: "linear-gradient(135deg,#404040,#a3a3a3)" },
+      { id: "v7", title: "Orçamento e gastos", duration: "6:40", desc: "Organize fixos e variáveis para saber quanto investir.", done: false, thumb: "linear-gradient(135deg,#0a0a0a,#525252)" },
+      { id: "v8", title: "Perfil de investidor", duration: "4:50", desc: "Descubra seu nível de risco e prazo ideal.", done: false, thumb: "linear-gradient(135deg,#262626,#737373)" },
     ],
   },
 ];
@@ -106,15 +106,17 @@ const DEFAULT_PROFILE = {
 const DEFAULT_EXPENSES = {
   fixos: [
     { id: 1, desc: "Aluguel", value: 1500 },
-    { id: 2, desc: "Internet + celular", value: 180 },
-    { id: 3, desc: "Plano de saúde", value: 420 },
-    { id: 4, desc: "Condomínio", value: 350 },
+    { id: 2, desc: "Academia", value: 120 },
+    { id: 3, desc: "Internet + celular", value: 180 },
+    { id: 4, desc: "Plano de saúde", value: 420 },
+    { id: 5, desc: "Condomínio", value: 350 },
   ],
   variaveis: [
-    { id: 1, desc: "Alimentação", value: 900 },
-    { id: 2, desc: "Transporte", value: 350 },
-    { id: 3, desc: "Lazer", value: 280 },
-    { id: 4, desc: "Outros", value: 200 },
+    { id: 1, desc: "Mercado", value: 600 },
+    { id: 2, desc: "Mecânico", value: 350 },
+    { id: 3, desc: "Transporte", value: 280 },
+    { id: 4, desc: "Lazer", value: 200 },
+    { id: 5, desc: "Outros", value: 150 },
   ],
 };
 
@@ -144,9 +146,9 @@ const FAQ = [
 ];
 
 const ALLOCATIONS = [
-  { name: "Renda Fixa", pct: 55, value: 15697, color: "#6b46c1" },
-  { name: "Multimercado", pct: 30, value: 8562, color: "#059669" },
-  { name: "Renda Variável", pct: 15, value: 4281, color: "#d97706" },
+  { name: "Renda Fixa", pct: 55, value: 15697, color: "#737373" },
+  { name: "Multimercado", pct: 30, value: 8562, color: "#a3a3a3" },
+  { name: "Renda Variável", pct: 15, value: 4281, color: "#525252" },
 ];
 
 const MOVEMENTS = [
@@ -154,6 +156,19 @@ const MOVEMENTS = [
   { desc: "Rendimento — Tesouro Selic", value: "+ R$ 42,30", date: "10 mai", type: "in" },
   { desc: "Aporte — Fundo multimercado", value: "+ R$ 1.000,00", date: "05 mai", type: "in" },
   { desc: "Taxa de administração", value: "- R$ 12,50", date: "01 mai", type: "out" },
+];
+
+/** Barras do painel inicial (demo) — valores em milhares R$ */
+const HOME_BAR = {
+  labels: ["Mai", "Jun", "Jul", "Ago", "Set", "Out"],
+  values: [22100, 23400, 24000, 25200, 26800, 28540],
+};
+
+const SEND_CONTACTS = [
+  { name: "Ana", seed: "Ana" },
+  { name: "Bruno", seed: "Bruno" },
+  { name: "Carla", seed: "Carla" },
+  { name: "Diego", seed: "Diego" },
 ];
 
 let simHistory = JSON.parse(localStorage.getItem("investe_sim_history") || "[]");
@@ -382,6 +397,10 @@ function loadProfileForm() {
   });
   updateProfilePreview();
   syncUserName();
+  const tri = document.getElementById("trackRendaInput");
+  if (tri && userProfile.renda !== undefined && userProfile.renda !== null) {
+    tri.value = String(userProfile.renda);
+  }
 }
 
 function updateProfilePreview() {
@@ -424,6 +443,8 @@ function saveProfile(e) {
   localStorage.setItem("investe_profile", JSON.stringify(userProfile));
   updateProfilePreview();
   syncUserName();
+  const tri = document.getElementById("trackRendaInput");
+  if (tri) tri.value = String(userProfile.renda ?? "");
   renderExpenses();
   showToast("profileToast");
 }
@@ -443,15 +464,19 @@ function sumExpenses(list) {
 }
 
 function renderExpenses() {
-  const fixBody = document.querySelector("#tableFixos tbody");
-  const varBody = document.querySelector("#tableVariaveis tbody");
-  if (!fixBody || !varBody) return;
+  const rowsHtmlFix = expenses.fixos.map((i) => renderExpenseRow(i, "fixo")).join("");
+  const rowsHtmlVar = expenses.variaveis.map((i) => renderExpenseRow(i, "variavel")).join("");
 
-  fixBody.innerHTML = expenses.fixos.map((i) => renderExpenseRow(i, "fixo")).join("");
-  varBody.innerHTML = expenses.variaveis.map((i) => renderExpenseRow(i, "variavel")).join("");
+  document.querySelectorAll("#tableFixos tbody, #trackTableFixos tbody").forEach((tb) => {
+    tb.innerHTML = rowsHtmlFix;
+  });
+  document.querySelectorAll("#tableVariaveis tbody, #trackTableVariaveis tbody").forEach((tb) => {
+    tb.innerHTML = rowsHtmlVar;
+  });
 
   const totalFix = sumExpenses(expenses.fixos);
   const totalVar = sumExpenses(expenses.variaveis);
+  const totalGastos = totalFix + totalVar;
   const renda = Number(userProfile.renda) || 0;
   const sobra = renda - totalFix - totalVar;
 
@@ -467,7 +492,26 @@ function renderExpenses() {
     elSobra.style.color = sobra >= 0 ? "var(--growth)" : "var(--alert)";
   }
   if (elHint) {
-    elHint.textContent = "Renda " + formatBRL(renda) + " − gastos " + formatBRL(totalFix + totalVar);
+    elHint.textContent = "Renda " + formatBRL(renda) + " − gastos " + formatBRL(totalGastos);
+  }
+
+  const tf2 = document.getElementById("trackTotalFixos");
+  const tv2 = document.getElementById("trackTotalVariaveis");
+  const tg2 = document.getElementById("trackTotalGastos");
+  const ts2 = document.getElementById("trackSobraInvestir");
+  const th2 = document.getElementById("trackSobraHint");
+  if (tf2) tf2.textContent = formatBRL(totalFix);
+  if (tv2) tv2.textContent = formatBRL(totalVar);
+  if (tg2) tg2.textContent = formatBRL(totalGastos);
+  if (ts2) {
+    ts2.textContent = formatBRL(sobra);
+    ts2.style.color = sobra >= 0 ? "var(--growth)" : "var(--alert)";
+  }
+  if (th2) {
+    th2.textContent =
+      renda > 0
+        ? "Renda " + formatBRL(renda) + " − " + formatBRL(totalGastos) + " de gastos"
+        : "Informe sua renda para calcular a sobra.";
   }
 
   const summary = document.getElementById("expenseSummaryList");
@@ -475,11 +519,15 @@ function renderExpenses() {
     summary.innerHTML =
       "<li><span>Total fixos</span><strong>" + formatBRL(totalFix) + "</strong></li>" +
       "<li><span>Total variáveis</span><strong>" + formatBRL(totalVar) + "</strong></li>" +
-      "<li><span>Total de gastos</span><strong>" + formatBRL(totalFix + totalVar) + "</strong></li>" +
+      "<li><span>Total de gastos</span><strong>" + formatBRL(totalGastos) + "</strong></li>" +
       "<li class=\"is-highlight\"><span>Sobra estimada</span><strong>" + formatBRL(sobra) + "</strong></li>";
   }
 
   localStorage.setItem("investe_expenses", JSON.stringify(expenses));
+  renderBudgetDonut("homeDonutWrap", "homeDonutLegend", "donutGradHome");
+  renderBudgetDonut("trackBudgetDonutWrap", "trackBudgetLegend", "donutGradTrack");
+  renderTrackBudgetBars();
+  renderTrackGoalInsight();
 }
 
 function addExpense(type) {
@@ -573,24 +621,379 @@ function renderSimHistory() {
   `).join("");
 }
 
-function renderChart(values, labels) {
-  const chart = document.getElementById("projectionChart");
-  if (!chart) return;
-
+function buildAnimatedBars(container, values, labels, options = {}) {
+  if (!container) return;
   const max = Math.max(...values, 1);
-  chart.innerHTML = "";
+  const activeIndex = options.activeIndex != null ? options.activeIndex : values.length - 1;
+
+  container.innerHTML = "";
+  container.classList.add("chart-surface--bars");
 
   values.forEach((v, i) => {
-    const bar = document.createElement("div");
-    bar.className = "chart-bar" + (i === values.length - 1 ? " is-active" : "");
-    bar.style.height = Math.max(8, (v / max) * 140) + "px";
-    bar.title = formatBRL(v);
+    const pct = Math.max(0.06, v / max);
+    const wrap = document.createElement("div");
+    wrap.className = "viz-bar" + (i === activeIndex ? " is-active" : "");
+    wrap.style.setProperty("--bar-pct", String(pct));
 
-    const label = document.createElement("span");
-    label.textContent = labels[i];
-    bar.appendChild(label);
-    chart.appendChild(bar);
+    const track = document.createElement("div");
+    track.className = "viz-bar__track";
+
+    const fill = document.createElement("div");
+    fill.className = "viz-bar__fill";
+    fill.style.height = pct * 100 + "%";
+
+    const tip = document.createElement("div");
+    tip.className = "viz-bar__tip";
+    tip.textContent = formatBRL(v);
+
+    const lab = document.createElement("span");
+    lab.className = "viz-bar__label";
+    lab.textContent = labels[i] || "";
+
+    track.appendChild(fill);
+    wrap.appendChild(tip);
+    wrap.appendChild(track);
+    wrap.appendChild(lab);
+    container.appendChild(wrap);
   });
+
+  requestAnimationFrame(() => {
+    container.querySelectorAll(".viz-bar").forEach((el, i) => {
+      el.style.transitionDelay = i * 55 + "ms";
+      el.classList.add("is-ready");
+    });
+  });
+}
+
+function renderChart(values, labels) {
+  const chart = document.getElementById("projectionChart");
+  buildAnimatedBars(chart, values, labels, { activeIndex: values.length - 1 });
+}
+
+function renderHomeBarChart() {
+  const el = document.getElementById("homeBarChart");
+  buildAnimatedBars(el, HOME_BAR.values, HOME_BAR.labels, { activeIndex: HOME_BAR.values.length - 1 });
+}
+
+function polar(cx, cy, r, deg) {
+  const rad = (deg * Math.PI) / 180;
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+}
+
+function donutArcPath(cx, cy, r, startDeg, endDeg) {
+  const start = polar(cx, cy, r, startDeg);
+  const end = polar(cx, cy, r, endDeg);
+  let diff = endDeg - startDeg;
+  while (diff < 0.01) diff += 360;
+  while (diff > 360) diff -= 360;
+  const large = diff > 180 ? 1 : 0;
+  return "M " + start.x + " " + start.y + " A " + r + " " + r + " 0 " + large + " 1 " + end.x + " " + end.y;
+}
+
+function renderBudgetDonut(wrapId, legendId, gradientId) {
+  const wrap = document.getElementById(wrapId);
+  const legend = document.getElementById(legendId);
+  if (!wrap || !legend) return;
+
+  const gid = gradientId || "donutGradDefault";
+
+  const totalFix = sumExpenses(expenses.fixos);
+  const totalVar = sumExpenses(expenses.variaveis);
+  const renda = Number(userProfile.renda) || 0;
+  const sobra = Math.max(0, renda - totalFix - totalVar);
+
+  const segments = [
+    { label: "Gastos fixos", value: totalFix, color: "#9ca3af" },
+    { label: "Gastos variáveis", value: totalVar, color: "#737373" },
+    { label: "Sobra estimada", value: sobra, color: "#d4d4d4" },
+  ];
+
+  const sum = segments.reduce((s, x) => s + x.value, 0);
+  const arcSegments = segments.filter((s) => s.value > 0);
+  const arcSum = arcSegments.reduce((s, x) => s + x.value, 0) || 1;
+
+  const cx = 50;
+  const cy = 50;
+  const r = 36;
+  const sw = 11;
+
+  if (arcSegments.length === 0) {
+    wrap.innerHTML =
+      '<svg viewBox="0 0 100 100" aria-hidden="true"><text x="50" y="54" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8" font-family="system-ui,sans-serif">Sem dados</text></svg>';
+    legend.innerHTML = "<li><span>Nada a exibir ainda</span></li>";
+    return;
+  }
+
+  let angle = -90;
+  let paths = "";
+  if (arcSegments.length === 1) {
+    const s = arcSegments[0];
+    paths =
+      '<circle class="donut-path" cx="' +
+      cx +
+      '" cy="' +
+      cy +
+      '" r="' +
+      r +
+      '" fill="none" stroke="' +
+      s.color +
+      '" stroke-width="' +
+      sw +
+      '" />';
+  } else {
+    paths = arcSegments
+      .map((seg) => {
+        const span = (seg.value / arcSum) * 360;
+        const start = angle;
+        const end = angle + Math.max(span, 0.35);
+        const d = donutArcPath(cx, cy, r, start, end);
+        angle = end;
+        return '<path class="donut-path" fill="none" stroke="' + seg.color + '" stroke-width="' + sw + '" stroke-linecap="round" d="' + d + '" />';
+      })
+      .join("");
+  }
+
+  wrap.innerHTML =
+    '<svg viewBox="0 0 100 100" aria-label="Distribuição da renda">' +
+    "<defs>" +
+    '<linearGradient id="' +
+    gid +
+    '" x1="0" y1="0" x2="1" y2="1">' +
+    '<stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>' +
+    '<stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>' +
+    "</linearGradient></defs>" +
+    '<circle cx="' +
+    cx +
+    '" cy="' +
+    cy +
+    '" r="' +
+    r +
+    '" fill="none" stroke="url(#' +
+    gid +
+    ')" stroke-width="' +
+    sw +
+    '" />' +
+    paths +
+    "</svg>";
+
+  legend.innerHTML = segments
+    .map((seg) => {
+      const pct = sum > 0 ? Math.round((seg.value / sum) * 100) : 0;
+      return (
+        "<li><span class=\"donut-legend__swatch\" style=\"color:" +
+        seg.color +
+        ";background:" +
+        seg.color +
+        "\"></span><span>" +
+        seg.label +
+        '</span><span class="donut-legend__pct">' +
+        pct +
+        "%</span></li>"
+      );
+    })
+    .join("");
+
+  requestAnimationFrame(() => {
+    wrap.querySelectorAll(".donut-path").forEach((p, i) => {
+      const path = p;
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = String(len);
+      path.style.strokeDashoffset = String(len);
+      path.style.transition = "stroke-dashoffset 0.85s cubic-bezier(0.22, 1, 0.36, 1) " + i * 90 + "ms";
+      void path.getBoundingClientRect();
+      path.style.strokeDashoffset = "0";
+    });
+  });
+}
+
+function renderTrackBudgetBars() {
+  const el = document.getElementById("trackBudgetBars");
+  if (!el) return;
+
+  const renda = Number(userProfile.renda) || 0;
+  const totalFix = sumExpenses(expenses.fixos);
+  const totalVar = sumExpenses(expenses.variaveis);
+  const gastos = totalFix + totalVar;
+
+  if (renda <= 0) {
+    el.innerHTML =
+      "<p class=\"track-budget-empty\">Informe sua <strong>renda mensal</strong> acima para comparar com os gastos.</p>";
+    return;
+  }
+
+  const pct = (v) => Math.min(100, (v / renda) * 100);
+  const wFix = pct(totalFix);
+  const wVar = pct(totalVar);
+  const wGast = Math.min(100, wFix + wVar);
+  const wRest = Math.max(0, 100 - wGast);
+
+  const over = gastos > renda;
+  el.innerHTML =
+    '<div class="budget-stack">' +
+    '<div class="budget-stack__head"><span class="budget-stack__label">Renda</span><strong class="budget-stack__value">' +
+    formatBRL(renda) +
+    "</strong></div>" +
+    '<div class="budget-stack__rail" role="img" aria-label="Proporção da renda: fixos, variáveis e sobra">' +
+    '<div class="budget-stack__seg budget-stack__seg--fix" style="width:' +
+    wFix +
+    '%" title="Fixos ' +
+    formatBRL(totalFix) +
+    '"></div>' +
+    '<div class="budget-stack__seg budget-stack__seg--var" style="width:' +
+    wVar +
+    '%" title="Variáveis ' +
+    formatBRL(totalVar) +
+    '"></div>' +
+    '<div class="budget-stack__seg budget-stack__seg--rest' +
+    (over ? " budget-stack__seg--over" : "") +
+    '" style="width:' +
+    wRest +
+    '%" title="' +
+    (over ? "Acima da renda" : "Sobra " + formatBRL(renda - gastos)) +
+    '"></div>' +
+    "</div>" +
+    '<ul class="budget-stack__legend">' +
+    "<li><span class=\"budget-stack__sw budget-stack__sw--fix\"></span>Fixos <strong>" +
+    formatBRL(totalFix) +
+    "</strong></li>" +
+    "<li><span class=\"budget-stack__sw budget-stack__sw--var\"></span>Variáveis <strong>" +
+    formatBRL(totalVar) +
+    "</strong></li>" +
+    "<li><span class=\"budget-stack__sw " +
+    (over ? "budget-stack__sw--over" : "budget-stack__sw--rest") +
+    "\"></span>" +
+    (over ? "Acima da renda" : "Sobra") +
+    " <strong>" +
+    formatBRL(renda - gastos) +
+    "</strong></li>" +
+    "</ul></div>";
+}
+
+function renderTrackGoalInsight() {
+  const el = document.getElementById("trackGoalInsight");
+  if (!el) return;
+
+  const renda = Number(userProfile.renda) || 0;
+  const sobra = renda - sumExpenses(expenses.fixos) - sumExpenses(expenses.variaveis);
+  const primary = GOALS.find((g) => g.primary) || GOALS[0];
+  if (!primary) {
+    el.textContent = "";
+    return;
+  }
+
+  const falta = Math.max(0, primary.target - primary.current);
+  const meses = Math.max(1, primary.years * 12);
+  const mediaNecessaria = falta / meses;
+
+  if (renda <= 0) {
+    el.textContent =
+      "Defina sua renda e organize os gastos para estimar quanto pode aportar no objetivo \"" + primary.name + "\".";
+    return;
+  }
+
+  if (sobra < 0) {
+    el.textContent =
+      "Seus gastos superam a renda. Ajuste fixos e variáveis para voltar a sobrar e investir no objetivo \"" +
+      primary.name +
+      "\" (faltam " +
+      formatBRL(falta) +
+      ").";
+    return;
+  }
+
+  if (sobra >= mediaNecessaria) {
+    el.textContent =
+      "Sobra estimada de " +
+      formatBRL(sobra) +
+      " por mês cobre a média de " +
+      formatBRL(mediaNecessaria) +
+      " sugerida para \"" +
+      primary.name +
+      "\" (meta " +
+      formatBRL(primary.target) +
+      ").";
+  } else {
+    el.textContent =
+      "Objetivo \"" +
+      primary.name +
+      "\": faltam " +
+      formatBRL(falta) +
+      ". Com sobra de " +
+      formatBRL(sobra) +
+      "/mês, a média ideal seria " +
+      formatBRL(mediaNecessaria) +
+      " — considere reduzir gastos ou estender o prazo.";
+  }
+}
+
+function persistTrackRenda() {
+  const tri = document.getElementById("trackRendaInput");
+  if (!tri) return;
+  userProfile.renda = Number(tri.value) || 0;
+  localStorage.setItem("investe_profile", JSON.stringify(userProfile));
+  const pf = document.querySelector('#profileForm [name="renda"]');
+  if (pf) pf.value = String(userProfile.renda);
+  renderExpenses();
+}
+
+function renderSendRow() {
+  const row = document.getElementById("sendRow");
+  if (!row) return;
+  const base = "https://api.dicebear.com/7.x/avataaars/svg?backgroundColor=525252&seed=";
+  row.innerHTML =
+    '<div class="send-add" role="button" tabindex="0" title="Adicionar contato">+</div>' +
+    SEND_CONTACTS.map(
+      (c) =>
+        '<div class="send-avatar"><div class="send-avatar__circle" style="background-image:url(\'' +
+        base +
+        encodeURIComponent(c.seed) +
+        '\')" title="' +
+        c.name +
+        '"></div><span>' +
+        c.name +
+        "</span></div>"
+    ).join("");
+}
+
+function movementIcon(desc) {
+  const d = desc.toLowerCase();
+  if (d.includes("cdb")) return "C";
+  if (d.includes("tesouro")) return "T";
+  if (d.includes("fundo")) return "F";
+  if (d.includes("taxa")) return "%";
+  return "R";
+}
+
+function renderHomeTxList() {
+  const ul = document.getElementById("homeTxList");
+  if (!ul) return;
+  ul.innerHTML = MOVEMENTS.slice(0, 4)
+    .map((m) => {
+      const neg = m.type === "out";
+      const amtClass = neg ? "tx-item__amt tx-item__amt--neg" : "tx-item__amt tx-item__amt--pos";
+      const cleanVal = m.value.replace(/\s+/g, " ");
+      return (
+        '<li class="tx-item">' +
+        '<div class="tx-item__icon">' +
+        movementIcon(m.desc) +
+        "</div>" +
+        '<div class="tx-item__meta">' +
+        '<div class="tx-item__title">' +
+        m.desc.split(" — ")[0] +
+        "</div>" +
+        '<div class="tx-item__sub">' +
+        m.date +
+        " · " +
+        (neg ? "Saída" : "Entrada") +
+        "</div></div>" +
+        '<div class="' +
+        amtClass +
+        '">' +
+        cleanVal +
+        "</div></li>"
+      );
+    })
+    .join("");
 }
 
 function runSimulation(form, options = {}) {
@@ -653,6 +1056,9 @@ function navigateTo(pageId) {
   history.replaceState(null, "", "#" + pageId);
   closeSidebar();
   closeDropdowns();
+  if (pageId === "acompanhamento") {
+    renderExpenses();
+  }
 }
 
 function closeSidebar() {
@@ -763,6 +1169,10 @@ function init() {
   loadProfileForm();
   renderExpenses();
 
+  renderHomeBarChart();
+  renderSendRow();
+  renderHomeTxList();
+
   const valid = ["inicio", "objetivos", "investimentos", "simulacoes", "educacao", "acompanhamento", "ajuda", "perfil", "gastos"];
   const initial = location.hash.replace("#", "") || "inicio";
   navigateTo(valid.includes(initial) ? initial : "inicio");
@@ -783,6 +1193,9 @@ function init() {
 
   document.getElementById("profileForm")?.addEventListener("submit", saveProfile);
   document.getElementById("profileForm")?.querySelector('[name="risco"]')?.addEventListener("change", updateProfilePreview);
+
+  document.getElementById("trackRendaInput")?.addEventListener("change", persistTrackRenda);
+  document.getElementById("trackRendaInput")?.addEventListener("blur", persistTrackRenda);
 
   document.getElementById("videoPlayBtn")?.addEventListener("click", playSelectedVideo);
   document.getElementById("videoMarkDone")?.addEventListener("click", markVideoDone);

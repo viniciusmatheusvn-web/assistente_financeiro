@@ -110,7 +110,7 @@
           </div>
           <div class="topbar-dropdown-wrap">
           <button type="button" class="user-menu" id="userMenuBtn" aria-expanded="false" aria-controls="userDropdown">
-            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lucas&backgroundColor=c4b5fd" alt="" class="avatar" width="36" height="36" />
+            <img src="assets/profile-photo.png" alt="" class="avatar" width="36" height="36" />
             <span id="topbarUserName">Lucas</span>
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
@@ -141,6 +141,7 @@
               <div class="balance-inner">
                 <p class="balance-inner__label">Saldo consolidado</p>
                 <p class="balance-inner__amount">R$ 28.540<span class="balance-inner__cents">,00</span></p>
+                <p class="balance-inner__hint" id="balanceGainHint">Ganho com investimentos no mês <strong>+ R$ 750,00</strong></p>
                 <div class="balance-actions">
                   <button type="button" class="balance-action" data-nav="simulacoes">
                     <span class="balance-action__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
@@ -176,6 +177,41 @@
             </article>
           </div>
 
+          <div class="dashboard-analytics" aria-label="Visão rápida de desempenho e gastos">
+            <article class="card glass-card card--viz chart-card chart-card--wide">
+              <div class="chart-card__head">
+                <div>
+                  <p class="chart-card__eyebrow">Visão mensal</p>
+                  <h2 class="chart-card__title">Evolução do patrimônio</h2>
+                </div>
+                <div class="chart-card__toolbar">
+                  <label class="sr-only" for="homePeriodSelect">Período</label>
+                  <select id="homePeriodSelect" class="select-glass">
+                    <option>Mensal</option>
+                    <option>Trimestral</option>
+                    <option>Anual</option>
+                  </select>
+                </div>
+              </div>
+              <div class="chart-surface chart-surface--bars" id="homeBarChart" role="img" aria-label="Gráfico de barras do patrimônio por mês"></div>
+            </article>
+            <article class="card glass-card card--viz chart-card chart-card--donut">
+              <div class="chart-card__head">
+                <div>
+                  <p class="chart-card__eyebrow">Gastos no mês</p>
+                  <h2 class="chart-card__title">Distribuição estimada</h2>
+                </div>
+              </div>
+              <div class="donut-layout">
+                <div class="donut-wrap" id="homeDonutWrap" aria-hidden="true"></div>
+                <ul class="donut-legend" id="homeDonutLegend"></ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="inicio-split">
+            <div class="inicio-split__main">
+
           <header class="page-header page-header--compact">
             <h1>Olá, <span id="homeUserName">Lucas</span></h1>
             <p class="page-header__sub">Resumo da sua jornada financeira</p>
@@ -200,12 +236,15 @@
               <p>Você busca equilíbrio entre segurança e rentabilidade.</p>
             </div>
             <div class="profile-ring">
-              <svg viewBox="0 0 80 80" class="ring-chart" aria-hidden="true">
-                <circle cx="40" cy="40" r="34" class="ring-bg"/>
-                <circle cx="40" cy="40" r="34" class="ring-fill" style="--progress: 80"/>
-              </svg>
-              <span class="ring-label"><strong>80%</strong> definido</span>
-              <button type="button" class="link-btn" data-nav="perfil">Refazer perfil →</button>
+              <div class="ring-stack">
+                <img src="assets/profile-photo.png" alt="" class="ring-stack__photo" width="52" height="52" />
+                <svg viewBox="0 0 80 80" class="ring-chart" aria-hidden="true">
+                  <circle cx="40" cy="40" r="34" class="ring-bg"/>
+                  <circle cx="40" cy="40" r="34" class="ring-fill" style="--progress: 80"/>
+                </svg>
+              </div>
+              <p class="ring-caption"><span class="ring-caption__pct">80%</span> perfil definido</p>
+              <button type="button" class="link-btn profile-ring__action" data-nav="perfil">Refazer perfil →</button>
             </div>
           </article>
 
@@ -262,6 +301,21 @@
           </article>
 
           <p class="disclaimer">Investimentos envolvem riscos. Verifique sempre as condições antes de investir.</p>
+            </div>
+            <aside class="inicio-split__aside" aria-label="Resumo lateral">
+              <article class="card glass-card">
+                <h2 class="chart-card__title chart-card__title--sm">Enviar para</h2>
+                <div class="send-row" id="sendRow"></div>
+              </article>
+              <article class="card glass-card">
+                <div class="tx-head">
+                  <h2 class="chart-card__title chart-card__title--sm">Movimentações</h2>
+                  <button type="button" class="link-btn" data-nav="acompanhamento">Ver tudo</button>
+                </div>
+                <ul class="tx-list" id="homeTxList"></ul>
+              </article>
+            </aside>
+          </div>
         </section>
 
         <!-- OBJETIVOS -->
@@ -365,7 +419,7 @@
 
             <article class="card card--chart">
               <h2>Projeção ao longo do tempo</h2>
-              <div class="chart-area" id="projectionChart" aria-label="Gráfico de projeção"></div>
+              <div class="chart-area chart-area--viz" id="projectionChart" aria-label="Gráfico de projeção"></div>
               <div class="sim-summary">
                 <div>
                   <span class="sim-summary__label">Valor final estimado</span>
@@ -437,7 +491,13 @@
           </header>
           <div class="profile-layout">
             <article class="card">
-              <h2>Dados pessoais</h2>
+              <div class="profile-page-hero">
+                <img src="assets/profile-photo.png" alt="" class="profile-page-hero__photo" width="112" height="112" />
+                <div class="profile-page-hero__text">
+                  <h2>Dados pessoais</h2>
+                  <p class="card__intro">Atualize seus dados e acompanhe seu perfil de investidor.</p>
+                </div>
+              </div>
               <form id="profileForm" class="profile-form">
                 <div class="form-row form-row--2">
                   <label class="field"><span>Nome</span><input type="text" name="nome" value="Lucas Mendes" required /></label>
@@ -484,8 +544,54 @@
         <section class="page" id="page-acompanhamento" data-page="acompanhamento" hidden>
           <header class="page-header">
             <h1>Acompanhamento</h1>
-            <p class="page-header__sub">Visão geral da sua carteira e evolução patrimonial.</p>
+            <p class="page-header__sub">Visão geral da carteira, renda vs gastos e impacto nos seus objetivos.</p>
           </header>
+
+          <article class="card track-finance-card">
+            <div class="track-finance-head">
+              <div>
+                <h2>Orçamento mensal</h2>
+                <p class="card__intro">Edite renda e despesas — os mesmos dados aparecem em <strong>Meus gastos</strong>. A sobra estimada ajuda a planejar aportes para seus objetivos.</p>
+              </div>
+              <label class="field field--track-renda">
+                <span>Renda mensal (R$)</span>
+                <input type="number" id="trackRendaInput" class="expense-input track-renda-input" min="0" step="50" placeholder="Ex: 6500" />
+              </label>
+            </div>
+            <div class="stats-row stats-row--track">
+              <div class="stat-card">
+                <span class="stat-card__label">Gastos fixos</span>
+                <span class="stat-card__value" id="trackTotalFixos">R$ 0</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__label">Gastos variáveis</span>
+                <span class="stat-card__value" id="trackTotalVariaveis">R$ 0</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__label">Total de gastos</span>
+                <span class="stat-card__value" id="trackTotalGastos">R$ 0</span>
+              </div>
+              <div class="stat-card stat-card--highlight">
+                <span class="stat-card__label">Sobra estimada</span>
+                <span class="stat-card__value" id="trackSobraInvestir">R$ 0</span>
+                <span class="stat-card__delta" id="trackSobraHint">Renda − gastos</span>
+              </div>
+            </div>
+            <div class="track-budget-grid">
+              <div class="track-budget-col">
+                <h3 class="track-subtitle">Renda vs gastos</h3>
+                <div id="trackBudgetBars" class="track-budget-bars" aria-live="polite"></div>
+              </div>
+              <div class="track-budget-col">
+                <h3 class="track-subtitle">Distribuição da renda</h3>
+                <div class="donut-layout donut-layout--compact">
+                  <div class="donut-wrap" id="trackBudgetDonutWrap" aria-hidden="true"></div>
+                  <ul class="donut-legend" id="trackBudgetLegend"></ul>
+                </div>
+              </div>
+            </div>
+            <p class="track-goal-insight" id="trackGoalInsight" role="status"></p>
+          </article>
 
           <div class="stats-row">
             <div class="stat-card stat-card--highlight">
@@ -501,6 +607,31 @@
               <span class="stat-card__label">Aportes no mês</span>
               <span class="stat-card__value">R$ 1.500</span>
             </div>
+          </div>
+
+          <div class="track-layout track-layout--expenses">
+            <article class="card">
+              <h2>Gastos fixos</h2>
+              <p class="card__intro">Aluguel, academia, assinaturas…</p>
+              <div class="expense-table-wrap">
+                <table class="expense-table" id="trackTableFixos">
+                  <thead><tr><th>Descrição</th><th>R$</th><th></th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <button type="button" class="btn btn--outline btn--sm" data-add-expense="fixo">+ Fixo</button>
+            </article>
+            <article class="card">
+              <h2>Gastos variáveis</h2>
+              <p class="card__intro">Mercado, mecânico, lazer…</p>
+              <div class="expense-table-wrap">
+                <table class="expense-table" id="trackTableVariaveis">
+                  <thead><tr><th>Descrição</th><th>R$</th><th></th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <button type="button" class="btn btn--outline btn--sm" data-add-expense="variavel">+ Variável</button>
+            </article>
           </div>
 
           <div class="track-layout">
