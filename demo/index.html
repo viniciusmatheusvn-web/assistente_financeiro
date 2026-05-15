@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investe Fácil — Gestão financeira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/bank-theme.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Navegação principal">
+      <div class="sidebar__brand">
+        <div class="logo logo--star" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        </div>
+        <span class="sidebar__title">investe fácil</span>
+      </div>
+
+      <nav class="sidebar__nav">
+        <a href="#inicio" class="nav-item is-active" data-page="inicio">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V10.5z"/><path d="M9 21V12h6v9"/></svg>
+          </span>
+          Início
+        </a>
+        <a href="#objetivos" class="nav-item" data-page="objetivos">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+          </span>
+          Meus objetivos
+        </a>
+        <a href="#investimentos" class="nav-item" data-page="investimentos">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg>
+          </span>
+          Investimentos
+        </a>
+        <a href="#simulacoes" class="nav-item" data-page="simulacoes">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 14l3-3 3 2 4-5"/></svg>
+          </span>
+          Simulações
+        </a>
+        <a href="#educacao" class="nav-item" data-page="educacao">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 11v5c0 2 2.5 4 6 4s6-2 6-4v-5"/></svg>
+          </span>
+          Educação
+        </a>
+        <a href="#acompanhamento" class="nav-item" data-page="acompanhamento">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </span>
+          Acompanhamento
+        </a>
+        <a href="#ajuda" class="nav-item" data-page="ajuda">
+          <span class="nav-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 1c0 2-2.5 2-2.5 4"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
+          </span>
+          Ajuda
+        </a>
+      </nav>
+
+      <div class="sidebar__help card card--inset">
+        <div class="help-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 11a9 9 0 1018 0v4a2 2 0 01-2 2h-1.5a1.5 1.5 0 01-1.5-1.5V14a3 3 0 00-3-3H12a3 3 0 00-3 3v1.5A1.5 1.5 0 017.5 20H6a2 2 0 01-2-2v-4z"/></svg>
+        </div>
+        <p class="help-text"><strong>Precisa de ajuda?</strong> Fale com um assessor quando quiser.</p>
+        <button type="button" class="btn btn--primary btn--sm btn--full" data-action="falar-assessor">Falar agora</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <label class="search-bar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+          <input type="search" placeholder="Buscar qualquer coisa…" aria-label="Buscar" />
+          <kbd class="search-bar__kbd">Ctrl K</kbd>
+        </label>
+        <div class="topbar__actions">
+          <div class="topbar-dropdown-wrap">
+            <button type="button" class="icon-btn" id="notifBtn" aria-label="Notificações, 2 novas" aria-expanded="false" aria-controls="notifDropdown">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 00-4-5.66V4a2 2 0 10-4 0v1.34A6 6 0 006 11v3.2c0 .53-.21 1.04-.59 1.41L4 17h5"/><path d="M10 20a2 2 0 004 0"/></svg>
+              <span class="badge" id="notifBadge">2</span>
+            </button>
+            <div class="dropdown dropdown--notif" id="notifDropdown" hidden role="menu">
+              <p class="dropdown__title">Notificações</p>
+              <button type="button" class="notif-item is-unread" data-nav="objetivos">
+                <span class="notif-item__text">Seu objetivo <strong>Comprar um carro</strong> está 32% completo</span>
+                <time>há 2 horas</time>
+              </button>
+              <button type="button" class="notif-item is-unread" data-nav="educacao">
+                <span class="notif-item__text">Novo vídeo: <strong>Tesouro Selic na prática</strong></span>
+                <time>Ontem</time>
+              </button>
+              <button type="button" class="notif-item" data-nav="simulacoes">
+                <span class="notif-item__text">Simulação de 3 anos pronta para revisar</span>
+                <time>há 3 dias</time>
+              </button>
+            </div>
+          </div>
+          <div class="topbar-dropdown-wrap">
+          <button type="button" class="user-menu" id="userMenuBtn" aria-expanded="false" aria-controls="userDropdown">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lucas&backgroundColor=c4b5fd" alt="" class="avatar" width="36" height="36" />
+            <span id="topbarUserName">Lucas</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+            <div class="dropdown" id="userDropdown" hidden role="menu">
+              <button type="button" data-nav="perfil">Meu perfil</button>
+              <button type="button" data-nav="gastos">Meus gastos</button>
+              <button type="button" data-nav="educacao">Trilha de vídeos</button>
+              <button type="button" class="dropdown__muted" disabled>Sair (demo)</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content" id="content">
+        <!-- INÍCIO -->
+        <section class="page is-visible" id="page-inicio" data-page="inicio">
+          <div class="dashboard-hero">
+            <article class="card card--balance">
+              <div class="card--balance__head">
+                <div>
+                  <p class="card--balance__label">Patrimônio total</p>
+                  <p class="card--balance__sub">Disponível para investir</p>
+                </div>
+                <button type="button" class="currency-pill" aria-label="Moeda BRL">
+                  <span>🇧🇷</span> BRL <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="balance-inner">
+                <p class="balance-inner__label">Saldo consolidado</p>
+                <p class="balance-inner__amount">R$ 28.540<span class="balance-inner__cents">,00</span></p>
+                <div class="balance-actions">
+                  <button type="button" class="balance-action" data-nav="simulacoes">
+                    <span class="balance-action__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
+                    Aportar
+                  </button>
+                  <button type="button" class="balance-action" data-nav="gastos">
+                    <span class="balance-action__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></span>
+                    Gastos
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card card--shortcuts">
+              <div class="card--shortcuts__head">
+                <div>
+                  <h2>Acesso rápido</h2>
+                  <p>Navegue pelas áreas principais</p>
+                </div>
+                <button type="button" class="link-btn" data-nav="investimentos">Ver tudo →</button>
+              </div>
+              <div class="shortcut-chips">
+                <button type="button" class="shortcut-chip" data-nav="objetivos">Objetivos</button>
+                <button type="button" class="shortcut-chip" data-nav="investimentos">Investir</button>
+                <button type="button" class="shortcut-chip" data-nav="educacao">Trilha</button>
+                <button type="button" class="shortcut-chip" data-nav="perfil">Perfil</button>
+                <button type="button" class="shortcut-chip" data-nav="acompanhamento">Carteira</button>
+              </div>
+              <div class="shortcut-actions">
+                <button type="button" class="btn btn--dark btn--sm" data-nav="simulacoes">+ Simular</button>
+                <button type="button" class="btn btn--ghost btn--sm" data-nav="gastos">Gerenciar gastos</button>
+              </div>
+            </article>
+          </div>
+
+          <header class="page-header page-header--compact">
+            <h1>Olá, <span id="homeUserName">Lucas</span></h1>
+            <p class="page-header__sub">Resumo da sua jornada financeira</p>
+          </header>
+
+          <article class="card card--goal">
+            <div class="goal-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3"/></svg>
+            </div>
+            <div class="goal-body">
+              <p class="goal-label">Seu objetivo principal</p>
+              <p class="goal-title">Comprar um carro</p>
+              <p class="goal-meta">Prazo: <strong>3 anos</strong> · Meta: <strong>R$ 45.000</strong></p>
+            </div>
+            <button type="button" class="btn btn--outline" data-nav="objetivos">Ver detalhes</button>
+          </article>
+
+          <article class="card card--profile">
+            <div class="profile-info">
+              <h2>Seu perfil de investidor</h2>
+              <span class="pill pill--brand">Moderado</span>
+              <p>Você busca equilíbrio entre segurança e rentabilidade.</p>
+            </div>
+            <div class="profile-ring">
+              <svg viewBox="0 0 80 80" class="ring-chart" aria-hidden="true">
+                <circle cx="40" cy="40" r="34" class="ring-bg"/>
+                <circle cx="40" cy="40" r="34" class="ring-fill" style="--progress: 80"/>
+              </svg>
+              <span class="ring-label"><strong>80%</strong> definido</span>
+              <button type="button" class="link-btn" data-nav="perfil">Refazer perfil →</button>
+            </div>
+          </article>
+
+          <section class="section">
+            <div class="section__head">
+              <h2>Investimentos recomendados para você</h2>
+              <button type="button" class="link-btn" data-nav="investimentos">Ver todos</button>
+            </div>
+            <div class="invest-grid" id="homeInvestGrid"></div>
+          </section>
+
+          <article class="card card--simulator" id="homeSimulator">
+            <div class="sim-header">
+              <div class="sim-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg>
+              </div>
+              <h2>Simule seus investimentos</h2>
+            </div>
+            <form class="sim-form" data-simulator>
+              <div class="form-row">
+                <label class="field">
+                  <span>Quanto você quer investir?</span>
+                  <input type="text" name="valor" value="R$ 500,00" inputmode="decimal" />
+                </label>
+                <label class="field">
+                  <span>Por quanto tempo?</span>
+                  <select name="prazo">
+                    <option value="1">1 ano</option>
+                    <option value="2">2 anos</option>
+                    <option value="3" selected>3 anos</option>
+                    <option value="5">5 anos</option>
+                    <option value="10">10 anos</option>
+                  </select>
+                </label>
+              </div>
+              <div class="sim-result">
+                <p class="sim-result__label">Valor estimado ao final</p>
+                <p class="sim-result__value" data-result>R$ 20.864,00</p>
+                <p class="sim-result__note">com base no seu perfil moderado</p>
+              </div>
+              <button type="submit" class="btn btn--primary">Simular agora</button>
+            </form>
+          </article>
+
+          <article class="card card--edu-banner">
+            <div class="edu-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 11v5c0 2 2.5 4 6 4s6-2 6-4v-5"/></svg>
+            </div>
+            <div>
+              <h2>Aprenda de forma simples</h2>
+              <p>Trilha em vídeo do básico ao planejamento financeiro.</p>
+            </div>
+            <button type="button" class="btn btn--outline btn--success" data-nav="educacao">Assistir trilha</button>
+          </article>
+
+          <p class="disclaimer">Investimentos envolvem riscos. Verifique sempre as condições antes de investir.</p>
+        </section>
+
+        <!-- OBJETIVOS -->
+        <section class="page" id="page-objetivos" data-page="objetivos" hidden>
+          <header class="page-header">
+            <h1>Meus objetivos</h1>
+            <p class="page-header__sub">Defina metas e acompanhe seu progresso rumo ao futuro.</p>
+          </header>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <span class="stat-card__label">Objetivos ativos</span>
+              <span class="stat-card__value">3</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Total acumulado</span>
+              <span class="stat-card__value">R$ 14.320</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Meta combinada</span>
+              <span class="stat-card__value">R$ 78.000</span>
+            </div>
+          </div>
+
+          <div class="goals-list" id="goalsList"></div>
+
+          <article class="card card--form">
+            <h2>Novo objetivo</h2>
+            <form id="goalForm" class="goal-form">
+              <div class="form-row form-row--3">
+                <label class="field">
+                  <span>Nome do objetivo</span>
+                  <input type="text" name="nome" placeholder="Ex: Viagem para Europa" required />
+                </label>
+                <label class="field">
+                  <span>Valor da meta (R$)</span>
+                  <input type="number" name="valor" placeholder="15000" min="100" required />
+                </label>
+                <label class="field">
+                  <span>Prazo (anos)</span>
+                  <input type="number" name="prazo" placeholder="2" min="1" max="30" required />
+                </label>
+              </div>
+              <button type="submit" class="btn btn--primary">Adicionar objetivo</button>
+            </form>
+          </article>
+        </section>
+
+        <!-- INVESTIMENTOS -->
+        <section class="page" id="page-investimentos" data-page="investimentos" hidden>
+          <header class="page-header">
+            <h1>Investimentos</h1>
+            <p class="page-header__sub">Explore opções alinhadas ao seu perfil moderado.</p>
+          </header>
+
+          <div class="filter-bar">
+            <button type="button" class="chip is-active" data-filter="todos">Todos</button>
+            <button type="button" class="chip" data-filter="renda-fixa">Renda fixa</button>
+            <button type="button" class="chip" data-filter="multimercado">Multimercado</button>
+            <button type="button" class="chip" data-filter="baixo-risco">Baixo risco</button>
+          </div>
+
+          <div class="invest-grid invest-grid--full" id="investGrid"></div>
+        </section>
+
+        <!-- SIMULAÇÕES -->
+        <section class="page" id="page-simulacoes" data-page="simulacoes" hidden>
+          <header class="page-header">
+            <h1>Simulações</h1>
+            <p class="page-header__sub">Projete quanto seu dinheiro pode render ao longo do tempo.</p>
+          </header>
+
+          <div class="sim-layout">
+            <article class="card card--sim-full">
+              <h2>Calculadora de investimentos</h2>
+              <form class="sim-form sim-form--vertical" id="fullSimulator" data-simulator>
+                <label class="field">
+                  <span>Valor inicial</span>
+                  <input type="text" name="valor" value="R$ 1.000,00" />
+                </label>
+                <label class="field">
+                  <span>Aporte mensal</span>
+                  <input type="text" name="aporte" value="R$ 500,00" />
+                </label>
+                <label class="field">
+                  <span>Taxa anual estimada (%)</span>
+                  <input type="number" name="taxa" value="11.5" step="0.1" min="0" max="30" />
+                </label>
+                <label class="field">
+                  <span>Período</span>
+                  <select name="prazo">
+                    <option value="1">1 ano</option>
+                    <option value="3" selected>3 anos</option>
+                    <option value="5">5 anos</option>
+                    <option value="10">10 anos</option>
+                  </select>
+                </label>
+                <button type="submit" class="btn btn--primary">Calcular projeção</button>
+              </form>
+            </article>
+
+            <article class="card card--chart">
+              <h2>Projeção ao longo do tempo</h2>
+              <div class="chart-area" id="projectionChart" aria-label="Gráfico de projeção"></div>
+              <div class="sim-summary">
+                <div>
+                  <span class="sim-summary__label">Valor final estimado</span>
+                  <span class="sim-summary__value" id="fullSimResult">R$ 22.450,00</span>
+                </div>
+                <div>
+                  <span class="sim-summary__label">Total investido</span>
+                  <span class="sim-summary__value sim-summary__value--muted" id="fullSimInvested">R$ 19.000,00</span>
+                </div>
+                <div>
+                  <span class="sim-summary__label">Rendimento</span>
+                  <span class="sim-summary__value sim-summary__value--success" id="fullSimGain">R$ 3.450,00</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="history-section">
+            <h2>Simulações salvas</h2>
+            <div class="history-list" id="simHistory"></div>
+          </div>
+        </section>
+
+        <!-- EDUCAÇÃO -->
+        <section class="page" id="page-educacao" data-page="educacao" hidden>
+          <header class="page-header">
+            <h1>Trilha de vídeos</h1>
+            <p class="page-header__sub">Assista na ordem sugerida e desbloqueie os próximos módulos.</p>
+          </header>
+
+          <div class="edu-progress card">
+            <div class="edu-progress__info">
+              <span class="edu-progress__label">Progresso da trilha</span>
+              <span class="edu-progress__value" id="trailProgressText">0 de 0 vídeos</span>
+            </div>
+            <div class="progress-bar"><div class="progress-bar__fill" id="trailProgressBar" style="width: 0%"></div></div>
+          </div>
+
+          <div class="video-trail-layout">
+            <article class="card video-player-card">
+              <div class="video-player" id="videoPlayer">
+                <div class="video-player__placeholder" id="videoPlaceholder">
+                  <button type="button" class="video-player__play" id="videoPlayBtn" aria-label="Reproduzir">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="video-player__meta">
+                <span class="pill pill--brand" id="videoModuleTag">Módulo</span>
+                <h2 id="videoTitle">Selecione um vídeo na trilha</h2>
+                <p id="videoDesc">Conclua cada vídeo para liberar o próximo.</p>
+                <div class="video-player__actions">
+                  <button type="button" class="btn btn--primary btn--sm" id="videoMarkDone" disabled>Marcar como assistido</button>
+                  <span class="video-duration" id="videoDuration"></span>
+                </div>
+              </div>
+            </article>
+            <aside class="card video-trail-panel">
+              <h2 class="video-trail-panel__title">Sua trilha</h2>
+              <div class="video-trail-list" id="videoTrailList"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="page" id="page-perfil" data-page="perfil" hidden>
+          <header class="page-header">
+            <h1>Meu perfil</h1>
+            <p class="page-header__sub">Dados pessoais e perfil de investidor.</p>
+          </header>
+          <div class="profile-layout">
+            <article class="card">
+              <h2>Dados pessoais</h2>
+              <form id="profileForm" class="profile-form">
+                <div class="form-row form-row--2">
+                  <label class="field"><span>Nome</span><input type="text" name="nome" value="Lucas Mendes" required /></label>
+                  <label class="field"><span>E-mail</span><input type="email" name="email" value="lucas@email.com" /></label>
+                </div>
+                <div class="form-row form-row--2">
+                  <label class="field"><span>Telefone</span><input type="tel" name="telefone" value="(11) 99999-0000" /></label>
+                  <label class="field"><span>Renda mensal (R$)</span><input type="number" name="renda" value="6500" min="0" step="100" /></label>
+                </div>
+                <label class="field"><span>Objetivo principal</span>
+                  <select name="objetivo"><option value="reserva">Reserva</option><option value="aposentadoria">Aposentadoria</option><option value="bens" selected>Comprar bem</option><option value="renda">Renda extra</option></select>
+                </label>
+              </form>
+            </article>
+            <article class="card">
+              <h2>Perfil de investidor</h2>
+              <label class="field"><span>Experiência</span><select name="experiencia" form="profileForm"><option value="nenhuma">Iniciante</option><option value="pouca">Básica</option><option value="media" selected>Intermediária</option><option value="alta">Avançada</option></select></label>
+              <label class="field"><span>Risco</span><select name="risco" form="profileForm"><option value="conservador">Conservador</option><option value="moderado" selected>Moderado</option><option value="arrojado">Arrojado</option></select></label>
+              <label class="field"><span>Prazo</span><select name="prazo" form="profileForm"><option value="curto">Até 1 ano</option><option value="medio" selected>1–5 anos</option><option value="longo">5+ anos</option></select></label>
+              <div class="profile-result"><span class="pill pill--brand" id="profileRiskPill">Moderado</span><p id="profileResultText">Equilíbrio entre segurança e rentabilidade.</p></div>
+              <button type="submit" form="profileForm" class="btn btn--primary">Salvar perfil</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" id="page-gastos" data-page="gastos" hidden>
+          <header class="page-header">
+            <h1>Meus gastos mensais</h1>
+            <p class="page-header__sub">Fixos, variáveis e sobra para investir.</p>
+          </header>
+          <div class="stats-row">
+            <div class="stat-card"><span class="stat-card__label">Fixos</span><span class="stat-card__value" id="totalFixos">R$ 0</span></div>
+            <div class="stat-card"><span class="stat-card__label">Variáveis</span><span class="stat-card__value" id="totalVariaveis">R$ 0</span></div>
+            <div class="stat-card stat-card--highlight"><span class="stat-card__label">Sobra p/ investir</span><span class="stat-card__value" id="sobraInvestir">R$ 0</span><span class="stat-card__delta" id="sobraHint">Renda − gastos</span></div>
+          </div>
+          <div class="expenses-layout">
+            <article class="card"><h2>Gastos fixos</h2><p class="card__intro">Aluguel, internet, assinaturas…</p><div class="expense-table-wrap"><table class="expense-table" id="tableFixos"><thead><tr><th>Descrição</th><th>R$</th><th></th></tr></thead><tbody></tbody></table></div><button type="button" class="btn btn--outline btn--sm" data-add-expense="fixo">+ Fixo</button></article>
+            <article class="card"><h2>Gastos variáveis</h2><p class="card__intro">Alimentação, lazer, transporte…</p><div class="expense-table-wrap"><table class="expense-table" id="tableVariaveis"><thead><tr><th>Descrição</th><th>R$</th><th></th></tr></thead><tbody></tbody></table></div><button type="button" class="btn btn--outline btn--sm" data-add-expense="variavel">+ Variável</button></article>
+          </div>
+          <article class="card"><h2>Resumo</h2><ul class="expense-summary-list" id="expenseSummaryList"></ul></article>
+        </section>
+
+        <!-- ACOMPANHAMENTO -->
+        <section class="page" id="page-acompanhamento" data-page="acompanhamento" hidden>
+          <header class="page-header">
+            <h1>Acompanhamento</h1>
+            <p class="page-header__sub">Visão geral da sua carteira e evolução patrimonial.</p>
+          </header>
+
+          <div class="stats-row">
+            <div class="stat-card stat-card--highlight">
+              <span class="stat-card__label">Patrimônio total</span>
+              <span class="stat-card__value">R$ 28.540,00</span>
+              <span class="stat-card__delta stat-card__delta--up">+2,4% este mês</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Rentabilidade (12m)</span>
+              <span class="stat-card__value">11,8%</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Aportes no mês</span>
+              <span class="stat-card__value">R$ 1.500</span>
+            </div>
+          </div>
+
+          <div class="track-layout">
+            <article class="card">
+              <h2>Alocação da carteira</h2>
+              <div class="allocation-list" id="allocationList"></div>
+            </article>
+            <article class="card">
+              <h2>Movimentações recentes</h2>
+              <ul class="movement-list" id="movementList"></ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- AJUDA -->
+        <section class="page" id="page-ajuda" data-page="ajuda" hidden>
+          <header class="page-header">
+            <h1>Ajuda</h1>
+            <p class="page-header__sub">Tire dúvidas e fale com nossa equipe quando precisar.</p>
+          </header>
+
+          <div class="help-layout">
+            <article class="card help-card">
+              <div class="help-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              </div>
+              <h2>Chat com assessor</h2>
+              <p>Converse em tempo real com um especialista certificado.</p>
+              <button type="button" class="btn btn--primary" data-action="falar-assessor">Iniciar conversa</button>
+            </article>
+            <article class="card help-card">
+              <div class="help-card__icon help-card__icon--muted">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              </div>
+              <h2>Central de artigos</h2>
+              <p>Perguntas frequentes sobre investimentos e objetivos.</p>
+              <button type="button" class="btn btn--outline" data-nav="educacao">Ver trilha</button>
+            </article>
+          </div>
+
+          <article class="card">
+            <h2>Perguntas frequentes</h2>
+            <div class="faq-list" id="faqList"></div>
+          </article>
+
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" hidden></div>
+
+  <div class="toast-container" aria-live="polite">
+    <div class="toast toast--info" id="helpToast" hidden role="status">
+      Um assessor entrará em contato em breve. Horário: seg–sex, 9h–18h.
+    </div>
+    <div class="toast toast--info" id="profileToast" hidden role="status">Perfil salvo com sucesso!</div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
