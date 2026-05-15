@@ -625,9 +625,16 @@ function buildAnimatedBars(container, values, labels, options = {}) {
   if (!container) return;
   const max = Math.max(...values, 1);
   const activeIndex = options.activeIndex != null ? options.activeIndex : values.length - 1;
+  const showTips = options.showTips !== false;
+  const projectionStyle = options.projectionStyle === true || container.id === "projectionChart";
 
   container.innerHTML = "";
   container.classList.add("chart-surface--bars");
+  if (projectionStyle) {
+    container.classList.add("chart-surface--projection");
+  } else {
+    container.classList.remove("chart-surface--projection");
+  }
 
   values.forEach((v, i) => {
     const pct = Math.max(0.06, v / max);
@@ -642,16 +649,17 @@ function buildAnimatedBars(container, values, labels, options = {}) {
     fill.className = "viz-bar__fill";
     fill.style.height = pct * 100 + "%";
 
-    const tip = document.createElement("div");
-    tip.className = "viz-bar__tip";
-    tip.textContent = formatBRL(v);
-
     const lab = document.createElement("span");
     lab.className = "viz-bar__label";
     lab.textContent = labels[i] || "";
 
     track.appendChild(fill);
-    wrap.appendChild(tip);
+    if (showTips) {
+      const tip = document.createElement("div");
+      tip.className = "viz-bar__tip";
+      tip.textContent = formatBRL(v);
+      wrap.appendChild(tip);
+    }
     wrap.appendChild(track);
     wrap.appendChild(lab);
     container.appendChild(wrap);
@@ -667,7 +675,11 @@ function buildAnimatedBars(container, values, labels, options = {}) {
 
 function renderChart(values, labels) {
   const chart = document.getElementById("projectionChart");
-  buildAnimatedBars(chart, values, labels, { activeIndex: values.length - 1 });
+  buildAnimatedBars(chart, values, labels, {
+    activeIndex: values.length - 1,
+    showTips: false,
+    projectionStyle: true,
+  });
 }
 
 function renderHomeBarChart() {
